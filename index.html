@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Parts Hub - Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #151924;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .signup-btn {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+            overflow: hidden;
+        }
+
+        .image-container {
+            flex: 1;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.vecteezy.com/system/resources/previews/022/875/413/large_2x/lamborghini-lead-car-heading-motorsport-racing-group-of-touring-cars-generate-ai-free-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #1e1e2e;
+            color: white;
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: #a0a0a0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: none;
+            border-radius: 25px;
+            background-color: #292941;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-input::placeholder {
+            color: #a0a0a0;
+        }
+
+        .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0a0a0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            background-color: #6c5ce7;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #5649c0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .image-container {
+                display: none;
+            }
+            
+            .form-container {
+                flex: none;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="carparts.html">Car Parts</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+    
+    <div class="navbar">
+        <div class="logo">
+            <span>🔧</span>
+            <span>Auto Parts Hub</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Marketplace</a>
+            <a href="#">Categories</a>
+            <a href="#">Connect Wallet</a>
+        </div>
+        <button class="signup-btn">Sign Up</button>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <!-- Left side image is set as background in CSS -->
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Create Account</h1>
+                <p>Welcome! Enter Your Details And Start Shopping For Premium Car Parts.</p>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <span class="icon">👤</span>
+                    <input type="text" class="form-input" placeholder="Username" required>
+                </div>
+
+                <div class="form-group">
+                    <span class="icon">✉️</span>
+                    <input type="email" class="form-input" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" class="form-input" placeholder="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" class="form-input" placeholder="Confirm Password" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Create account</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

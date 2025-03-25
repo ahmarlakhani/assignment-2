@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Parts Hub - Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #151924;
+            color: white;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .cart-btn {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            padding: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .product p {
+            color: #6c5ce7;
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cart {
+            position: fixed;
+            right: 20px;
+            top: 70px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            display: none;
+        }
+
+        .cart h2 {
+            margin-bottom: 10px;
+        }
+
+        .cart ul {
+            list-style: none;
+        }
+
+        .cart ul li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .cart-total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="carparts.html">Car Parts</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+    
+    <div class="navbar">
+        <div class="logo">🔧 Auto Parts Hub</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+        </div>
+        <button class="cart-btn" onclick="toggleCart()">🛒 Cart</button>
+    </div>
+
+    <div class="container" id="products">
+        <!-- Products will be inserted here dynamically -->
+    </div>
+
+    <div class="cart" id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+        <a href="checkout.html"><button class="add-to-cart">Proceed to Checkout</button></a>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Brake Pads", price: 29.99, image: "https://th.bing.com/th/id/OIP.SmMIFXTT-pqkVMaks1FwOAHaEJ?rs=1&pid=ImgDetMain" },
+            { id: 2, name: "Engine Oil", price: 19.99, image: "https://th.bing.com/th/id/R.e71bafd42a87041cd4cf2d775f1bcaf5?rik=CVszsGDp1JRXdQ&pid=ImgRaw&r=0" },
+            { id: 3, name: "Air Filter", price: 15.99, image: "https://th.bing.com/th/id/OIP.sqnG9jYTIHbZkR6N6fepfwAAAA?rs=1&pid=ImgDetMain" },
+        ];
+
+        let cart = [];
+
+        function renderProducts() {
+            const container = document.getElementById("products");
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+                `;
+                container.appendChild(productElement);
+            });
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price;
+                cartItems.innerHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
+            });
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function toggleCart() {
+            const cartElement = document.getElementById("cart");
+            cartElement.style.display = cartElement.style.display === "none" ? "block" : "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", renderProducts);
+    </script>
+</body>
+</html>
