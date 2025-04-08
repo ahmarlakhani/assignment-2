@@ -28,7 +28,7 @@ Auto Parts Hub is a responsive frontend web application that simulates a car par
 ## 🚀 Getting Started
 
 1. Clone the repo:
-   git clone https://github.com/your-username/auto-parts-hub.git
+   git clone https://github.com/ahmarlakhani/auto-parts-hub.git
 
 2. Open the HTML files in your browser:
    - `index.html` – Main shop page
